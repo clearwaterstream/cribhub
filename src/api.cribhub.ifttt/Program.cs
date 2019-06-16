@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace api.cribhub.ifft
+namespace api.cribhub.ifttt
 {
     public class Program
     {

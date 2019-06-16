@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace api.cribhub.ifft
+namespace api.cribhub.ifttt
 {
     public class Startup
     {
@@ -48,8 +48,6 @@ namespace api.cribhub.ifft
         protected virtual void ConfigureRoutes(IRouteBuilder routes)
         {
             routes.MapRoute("versioned", "v{version:apiVersion}/{controller=Home}/{action=Index}/{id?}");
-
-            routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }

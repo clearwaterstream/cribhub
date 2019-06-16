@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.cribhub.ifft.Controllers
+namespace api.cribhub.ifttt.Controllers
 {
-    [ApiVersionNeutral]
-    public class HomeController : ControllerBase
+    public class StatusController : ControllerBase
     {
         public IActionResult Index()
         {
-            return Content("CribHub IFTTT API");
+            return StatusCode(200);
         }
     }
 }

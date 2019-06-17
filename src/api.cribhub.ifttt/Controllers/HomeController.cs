@@ -12,10 +12,5 @@ namespace api.cribhub.ifttt.Controllers
         {
             return Content("CribHub IFTTT API");
         }
-
-        public IActionResult Status()
-        {
-            return StatusCode(200);
-        }
     }
 }

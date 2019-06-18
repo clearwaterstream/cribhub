@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using NLog;
 using System;
@@ -10,19 +12,42 @@ namespace api.cribhub.ifttt.Filters
 {
     public class ServiceKeyCheckAttribute : ActionFilterAttribute
     {
-        static readonly string _iftttSvcKeyEnvVarName = "IFTTT_SERVICE_KEY";
         static readonly string _iftttSvcHeaderName = "IFTTT-Service-Key";
-        static readonly string _serviceKey = Environment.GetEnvironmentVariable(_iftttSvcKeyEnvVarName);
 
         static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
+        readonly bool _allowAnonymous;
+
+        public ServiceKeyCheckAttribute(bool allowAnonymous)
+        {
+            _allowAnonymous = allowAnonymous;
+        }
+
+        static readonly string _serviceKey = null;
+
+        static ServiceKeyCheckAttribute()
+        {
+            using(var ssmClient = new AmazonSimpleSystemsManagementClient())
+            {
+                var task = ssmClient.GetParameterAsync(new GetParameterRequest()
+                {
+                    Name = _iftttSvcHeaderName,
+                    WithDecryption = false
+                });
+
+                _serviceKey = task.GetAwaiter().GetResult().Parameter.Value;
+
+                logger.Info($"obtained {_iftttSvcHeaderName} from SSM");
+            }
+        }
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             if(string.IsNullOrEmpty(_serviceKey))
             {
-                logger.Error($"{_iftttSvcKeyEnvVarName} is not set");
+                logger.Error($"{_iftttSvcHeaderName} is not set");
 
-                throw new Exception($"service key cannot be found. Ensure {_iftttSvcKeyEnvVarName} is set");
+                throw new Exception($"service key cannot be found. Ensure {_iftttSvcHeaderName} is set");
             }
 
             var req = context?.HttpContext?.Request;
@@ -38,6 +63,9 @@ namespace api.cribhub.ifttt.Filters
 
             if(string.IsNullOrEmpty(svcKey))
             {
+                if (_allowAnonymous)
+                    return;
+
                 logger.Error($"{_iftttSvcHeaderName} was not provided");
 
                 context.Result = new StatusCodeResult(401);

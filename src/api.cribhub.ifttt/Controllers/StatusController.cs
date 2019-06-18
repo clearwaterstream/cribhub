@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using api.cribhub.ifttt.Filters;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace api.cribhub.ifttt.Controllers
 {
     public class StatusController : ControllerBase
     {
+        [ServiceKeyCheck(allowAnonymous: true)]
         public IActionResult Index()
         {
             return StatusCode(200);

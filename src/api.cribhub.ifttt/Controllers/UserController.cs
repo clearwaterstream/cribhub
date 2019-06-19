@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using api.cribhub.ifttt.Filters;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace api.cribhub.ifttt.Controllers
 {
-    [ApiVersion("1.0")]
+    [ServiceKeyCheck]
     public class UserController : ControllerBase
     {
+        [HttpGet]
         public IActionResult Info()
         {
-            return Content("u");
+            throw new NotImplementedException();
         }
     }
 }

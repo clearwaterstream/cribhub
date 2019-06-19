@@ -30,16 +30,15 @@ namespace api.cribhub.ifttt
             logger = logFactory.GetCurrentClassLogger();
 
             logger.Info("app is booting");
+
+            Validators.RequiredTriggerFields.NoOp();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(opts =>
-            {
-                opts.Filters.Add(new ServiceKeyCheckAttribute());
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddApiVersioning(o =>
             {

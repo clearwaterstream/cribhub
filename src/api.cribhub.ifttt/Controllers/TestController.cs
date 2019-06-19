@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using api.cribhub.ifttt.Filters;
+using api.cribhub.ifttt.Model;
+using api.cribhub.ifttt.Model.Triggers;
+using api.cribhub.ifttt.Util;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +11,34 @@ using System.Threading.Tasks;
 
 namespace api.cribhub.ifttt.Controllers
 {
-    public class TestController : ControllerBase
+    [ServiceKeyCheck]
+    public class TestController : Controller
     {
         [HttpPost]
-        public IAsyncResult Setup()
+        public IActionResult Setup()
         {
-            throw new NotImplementedException();
+            var triggerCollection = new Dictionary<string, Trigger>()
+            {
+                ["temp_below_desired"] = new temp_below_desired()
+                {
+                    sensor_type = "ecobee",
+                    sensor_name = "bsmnt"
+                }
+            };
+
+            var result = new
+            {
+                data = new
+                {
+                    samples = new
+                    {
+
+                        triggers = triggerCollection
+                    }
+                }
+            };
+
+            return Json(result, JsonUtil.FullSerializerSettings_withFormatting);
         }
     }
 }

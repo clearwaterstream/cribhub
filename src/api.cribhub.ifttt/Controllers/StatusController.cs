@@ -10,7 +10,7 @@ namespace api.cribhub.ifttt.Controllers
 {
     public class StatusController : ControllerBase
     {
-        [AllowAnonymous]
+        [ServiceKeyCheck(allowNoKey: true)]
         public IActionResult Index()
         {
             return StatusCode(200);

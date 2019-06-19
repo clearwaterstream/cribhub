@@ -1,5 +1,6 @@
 ﻿using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using NLog;
@@ -15,13 +16,6 @@ namespace api.cribhub.ifttt.Filters
         static readonly string _iftttSvcHeaderName = "IFTTT-Service-Key";
 
         static readonly Logger logger = LogManager.GetCurrentClassLogger();
-
-        readonly bool _allowAnonymous;
-
-        public ServiceKeyCheckAttribute(bool allowAnonymous)
-        {
-            _allowAnonymous = allowAnonymous;
-        }
 
         static readonly string _serviceKey = null;
 
@@ -63,7 +57,9 @@ namespace api.cribhub.ifttt.Filters
 
             if(string.IsNullOrEmpty(svcKey))
             {
-                if (_allowAnonymous)
+                var allowAnonymous = context.ActionDescriptor.FilterDescriptors.Any(x => x.Filter is IAllowAnonymous);
+
+                if (allowAnonymous)
                     return;
 
                 logger.Error($"{_iftttSvcHeaderName} was not provided");

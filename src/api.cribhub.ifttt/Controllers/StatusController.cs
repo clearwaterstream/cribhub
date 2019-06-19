@@ -1,4 +1,5 @@
 ﻿using api.cribhub.ifttt.Filters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace api.cribhub.ifttt.Controllers
 {
     public class StatusController : ControllerBase
     {
-        [ServiceKeyCheck(allowAnonymous: true)]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return StatusCode(200);

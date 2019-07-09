@@ -1,7 +1,7 @@
 
 {
     "region" : "ca-central-1",
-    "profile" : "cribhub-admin",
+    "profile" : "dev",
     "configuration" : "Release",
     "framework"     : "netcoreapp2.1",
     "function-name" : "cribhub-ifttt-api",

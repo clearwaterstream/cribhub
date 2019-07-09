@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -116,8 +115,6 @@ namespace clearwaterstream.IoC
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        public static ILogger<T> GetLogger<T>() => (ILogger<T>)_serviceProvider.GetService(typeof(ILogger<T>));
 
         protected virtual void Dispose(bool disposing)
         {

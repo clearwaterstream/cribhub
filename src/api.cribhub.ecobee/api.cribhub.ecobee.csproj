@@ -1,7 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <AWSProjectType>Lambda</AWSProjectType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,8 +11,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="3.1.0" />
+    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.5.0" />
+    <PackageReference Include="AWS.Logger.NLog" Version="1.4.0" />
+    <PackageReference Include="FluentValidation" Version="8.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\clearwaterstream\clearwaterstream.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

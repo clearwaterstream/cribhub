@@ -1,0 +1,14 @@
+
+{
+    "region" : "ca-central-1",
+    "profile" : "dev",
+    "configuration" : "Release",
+    "framework"     : "netcoreapp2.1",
+    "function-name" : "cribhub-ecobee-api",
+    "function-handler" : "api.cribhub.ecobee::api.cribhub.ecobee.LambdaEntryPoint::FunctionHandlerAsync",
+    "function-memory-size" : 256,
+    "function-timeout"     : 30,
+    "function-runtime"     : "dotnetcore2.1",
+    "tracing-mode"         : "PassThrough",
+    "environment-variables" : "\"ASPNETCORE_ENVIRONMENT\"=\"Production\""
+}

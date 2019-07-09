@@ -14,7 +14,13 @@ namespace api.cribhub.ecobee
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var builder = CreateWebHostBuilder(args);
+
+            builder.UseKestrel(o => o.AddServerHeader = false); // do not adverstise Kestrel
+
+            var webHost = builder.Build();
+
+            webHost.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

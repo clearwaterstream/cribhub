@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace api.cribhub.ifttt.ErrorHandling
+namespace clearwaterstream.ErrorHandling
 {
     public static class GlobalErrorHandler
     {

@@ -17,4 +17,4 @@
   
 * parse the access token and the refresh token and use it in subsequent requests
 
-*more info on [ecobee auth flow](https://www.ecobee.com/home/developer/api/documentation/v1/auth/authz-code-authorization.shtml)*
+  *more info on [ecobee auth flow](https://www.ecobee.com/home/developer/api/documentation/v1/auth/authz-code-authorization.shtml)*

@@ -1,4 +1,4 @@
-﻿using api.cribhub.ifttt.Security;
+﻿using clearwaterstream.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;

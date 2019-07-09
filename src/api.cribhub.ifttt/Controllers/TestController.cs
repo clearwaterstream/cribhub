@@ -1,7 +1,7 @@
 ﻿using api.cribhub.ifttt.Filters;
 using api.cribhub.ifttt.Model;
 using api.cribhub.ifttt.Model.Triggers;
-using api.cribhub.ifttt.Util;
+using clearwaterstream.Util;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;

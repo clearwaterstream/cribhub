@@ -1,7 +1,7 @@
 ﻿using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
 using api.cribhub.ifttt.Model;
-using api.cribhub.ifttt.Util;
+using clearwaterstream.Util;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;

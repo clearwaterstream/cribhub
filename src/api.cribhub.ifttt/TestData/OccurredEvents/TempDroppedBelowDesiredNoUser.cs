@@ -1,7 +1,7 @@
 ﻿using api.cribhub.ifttt.Model;
 using api.cribhub.ifttt.Model.OccuredEvents;
-using api.cribhub.ifttt.Security;
 using api.cribhub.ifttt.Util;
+using clearwaterstream.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;

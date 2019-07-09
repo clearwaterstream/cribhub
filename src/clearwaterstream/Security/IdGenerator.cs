@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.cribhub.ifttt.Security
+namespace clearwaterstream.Security
 {
     public static class IdGenerator
     {

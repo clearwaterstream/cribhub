@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace api.cribhub.ifttt.Security
+namespace clearwaterstream.Security
 {
     public class CryptoRandomGenerator : IDisposable
     {

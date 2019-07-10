@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using clearwaterstream.IoC;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -20,13 +19,6 @@ namespace api.cribhub.ecobee.Initialization
 
         static void PerformRegistrations(ContainerBuilder builder)
         {
-            // MediatR
-            builder.Register<ServiceFactory>(ctx =>
-            {
-                var c = ctx.Resolve<IComponentContext>();
-                return t => c.Resolve(t);
-            });
-
             builder.RegisterModule(new AppModule());
         }
     }

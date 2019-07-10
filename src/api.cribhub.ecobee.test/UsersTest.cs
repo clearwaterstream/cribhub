@@ -16,7 +16,7 @@ namespace api.cribhub.ecobee.test
         [Fact]
         public async Task RegisterUser()
         {
-            var testUser = "fISTv_hZhZlvYIqPu8zQzAx8";
+            var testUserId = "fISTv_hZhZlvYIqPu8zQzAx8";
 
             var secretsContainer = ServiceRegistrar.Current.GetInstance<ISecretsContainer>();
 
@@ -27,7 +27,7 @@ namespace api.cribhub.ecobee.test
             var si = new StateInfo()
             {
                 ApiKey = apiKey,
-                CribHubUserId = "igor"
+                CribHubUserId = testUserId
             };
 
             var req = new RegisterUserRequest()

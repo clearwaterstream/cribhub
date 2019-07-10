@@ -6,11 +6,12 @@ namespace api.cribhub.ecobee.domain.Model
 {
     public class EcobeeUserAuthInfo
     {
-        public string CribHubUserId { get; set; }
-        public string AuthToken { get; set; }
-        public string AccessToken { get; set; }
-        public string RefreshToken { get; set; }
-        public int TokenExpiresIn { get; set; }
-        public DateTime LastTokenRefresh { get; set; }
+        public string user_id { get; set; }
+        public string authCode { get; set; }
+        public string accessToken { get; set; }
+        public string refreshToken { get; set; }
+        public int tokenExpiresIn { get; set; }
+        public DateTime lastUpdatedOn { get; set; }
+        public DateTime tokenLastRefreshedOn { get; set; }
     }
 }

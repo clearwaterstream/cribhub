@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.cribhub.ecobee.Initialization;
+using clearwaterstream.Configuration;
 using clearwaterstream.ErrorHandling;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +32,10 @@ namespace api.cribhub.ecobee
             logger = logFactory.GetCurrentClassLogger();
 
             logger.Info("app is booting");
+
+            AppEnvironment.SetName(env.EnvironmentName);
+
+            AppInitializer.Initialize(configuration);
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.

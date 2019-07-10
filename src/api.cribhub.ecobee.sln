@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api.cribhub.ecobee", "api.c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "clearwaterstream", "clearwaterstream\clearwaterstream.csproj", "{CA539F24-5FCB-4F79-9EE3-818A5B6A6CBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api.cribhub.ecobee.domain", "api.cribhub.ecobee.domain\api.cribhub.ecobee.domain.csproj", "{51A0D206-ACCC-4ED8-BD15-DCE2CEB608EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api.cribhub.ecobee.test", "api.cribhub.ecobee.test\api.cribhub.ecobee.test.csproj", "{C59C5309-9236-4D4C-8F96-A038507EEC03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{CA539F24-5FCB-4F79-9EE3-818A5B6A6CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA539F24-5FCB-4F79-9EE3-818A5B6A6CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA539F24-5FCB-4F79-9EE3-818A5B6A6CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A0D206-ACCC-4ED8-BD15-DCE2CEB608EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A0D206-ACCC-4ED8-BD15-DCE2CEB608EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A0D206-ACCC-4ED8-BD15-DCE2CEB608EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A0D206-ACCC-4ED8-BD15-DCE2CEB608EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59C5309-9236-4D4C-8F96-A038507EEC03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59C5309-9236-4D4C-8F96-A038507EEC03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C59C5309-9236-4D4C-8F96-A038507EEC03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C59C5309-9236-4D4C-8F96-A038507EEC03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

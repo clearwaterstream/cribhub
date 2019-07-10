@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using clearwaterstream.Mediation;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,8 @@ namespace clearwaterstream.IoC
                     if (_current == null)
                     {
                         var builder = new ContainerBuilder();
+
+                        builder.RegisterMediatR();
 
                         performRegistrations?.Invoke(builder);
 
